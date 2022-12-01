@@ -1,6 +1,9 @@
 const mainElement = document.querySelector("main");
-
+const bomb = [10, 30, 45, 50, 60, 70];
+let punteggio = 0;
 const button = document.querySelector("button");
+//STAMPO il valore del punteggio
+const outputPoint = document.getElementById("points");
 button.addEventListener("click", function () {
 
     //SVUOTO l'elemento main Element, resetto
@@ -10,7 +13,7 @@ button.addEventListener("click", function () {
     const newParentDivElement = document.createElement("div");
     newParentDivElement.classList.add("m-auto", "flex-wrap", "d-flex");
     mainElement.append(newParentDivElement);
-    
+
     //CICLO e creo i vari div che comporranno il divParent
     for (let i = 1; i <= 100; i++) {
         let newSquare = createSquare(i);
@@ -26,7 +29,22 @@ function createSquare(number) {
 
     newElement.addEventListener("click", function () {
         newElement.classList.toggle("bg-danger");
+        if (bomb.includes(number)) {
+            console.log("alla casella: " + number + " c'era na bella bombazza")
+            alert("HAI PERSO , hai totalizzato: " + punteggio + " punti");
+            punteggio = 0;
+            mainElement.innerHTML = "";
+            outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
+            
+        } else {
+            punteggio++;
+            outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
+        }
     });
     return newElement;
 }
 
+
+function getRadomUniqueNumber(blackList, min, max) {
+    let isValid
+}
