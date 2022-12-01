@@ -1,12 +1,11 @@
 const mainElement = document.querySelector("main");
 
 
-
+let bombList;
 //RIEMPIO l'array delle bombe
 
-
-
 let punteggio = 0;
+
 const button = document.querySelector("button");
 //STAMPO il valore del punteggio
 const outputPoint = document.getElementById("points");
@@ -14,9 +13,8 @@ button.addEventListener("click", function () {
 
     //SVUOTO l'elemento main Element, resetto
     mainElement.innerHTML = "";
-    
     //ARRAY che contiene le 16 bombe
-    const bombList = [];
+    bombList = [];
     while (bombList.length < 16) {
         bombList.push(getRandomBomb(bombList, 1, 100));
     }
