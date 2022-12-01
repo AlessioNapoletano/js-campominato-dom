@@ -72,3 +72,12 @@ function getRandomBomb(bombList, min, max) {
 
     return randomBombPosition;
 }
+
+/*
+//Funzione creaBombe(numeroDiBombeDaCreare, ArrayCheDeveNonIncludereLeBombe, minimo, massimo(tra cui creo le bombe))
+function createBomb(numberOfBomb, bombList, min, max){
+    let isUnique = false;
+    let randomListBomb; //valore di ritorno
+
+    while(isUnnique === false)
+}*/
