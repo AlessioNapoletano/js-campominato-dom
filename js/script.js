@@ -39,17 +39,31 @@ function createSquare(number) {
     newElement.classList.add("box", "d-flex", "justify-content-center", "align-items-center", "fs-3");
 
     newElement.addEventListener("click", function () {
-        newElement.classList.toggle("bg-danger");
+
         if (bombList.includes(number)) {
-            console.log("alla casella: " + number + " c'era na bella bombazza")
+
             alert("HAI PERSO , hai totalizzato: " + punteggio + " punti");
             punteggio = 0;
             mainElement.innerHTML = "";
             outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
 
         } else {
-            punteggio++;
-            outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
+            //CAMBIO colore al click sulla casella
+            newElement.classList.add("bg-primary");
+
+            //controllo che sia la prima volta che clicco sulla casella, nel caso aggiungo il punto
+            if (number > 0) {
+                punteggio++;
+                outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
+
+                if (punteggio === (100 - bombList.length)) {
+                    alert("HAI VINTO");
+                    punteggio = 0;
+                    mainElement.innerHTML = "";
+                    outputPoint.innerHTML = "Il tuo punteggio: " + punteggio;
+                }
+            }
+            number = -1;
         }
     });
     return newElement;
